@@ -1,0 +1,122 @@
+.App {
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.letreiro {
+  height: 30px;
+}
+
+.divFlex {
+  display: flex;
+}
+
+.divButton {
+  border: 1px solid rgb(8, 114, 105);
+  display: flex;
+}
+
+.buttonAdd,
+.buttonSub {
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 50px;
+  width: 40px;
+  height: 40px;
+}
+
+.buttonAdd {
+  background-color: greenyellow;
+  margin-right: 10px;
+}
+
+.buttonSub {
+  background-color: red;
+  margin-left: 10px;
+}
+
+.div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+img {
+  width: 100px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.view {
+  width: 350px;
+  height: 400px;
+  color: black;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.totalCount {
+  border: 2px solid grey;
+  border-radius: 10px;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.show {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.card {
+  border: 1px solid grey;
+  border-radius: 50%;
+}
+
+.card img {
+  border-radius: 50%;
+}
+
+.count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imgRestart{
+  width: 3rem;
+}
+.restart{
+  border-radius: 10%;
+}
+.textTotal{
+  margin: auto;
+  margin: 0 0 0 155px;
+}
