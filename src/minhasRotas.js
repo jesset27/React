@@ -3,6 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './Home';
 import Atv01 from './Components/Atividade 1/Letreiro';
 import Atv02 from './Components/Atividade 1/Relogio';
+
+//Atividade 6
+
+
+//Atividade 7
 import CarrinhoCompras from './Components/Atividade 7/CarrinhoCompras';
 
 export default function MinhasRotas(){
