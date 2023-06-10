@@ -36,15 +36,12 @@ import FormTicket from './Components/Atividade 5/FormTicket.js';
 import Accordion from './Components/Atividade 5/Accordion.js';
 // import ContactList from './Components/Atividade 5/ContactList.js';
 import Chat from './Components/Atividade 5/Chat.js';
+import Calculadora from './Components/Atividade 5.1/Calculadora.js';
 
 
 //Atividade 6
 
 //Atividade 6.1
-
-
-//Atividade 7
-// import CarrinhoCompras from './Components/Atividade 7/CarrinhoCompras';
 
 export default function MinhasRotas() {
     const contact = {
@@ -52,17 +49,6 @@ export default function MinhasRotas() {
         email: 'emaildocontato@example.com'
     };
 
-    // const contacts = [
-    //     { name: 'Contato 1', email: 'contato1@example.com' },
-    //     { name: 'Contato 2', email: 'contato2@example.com' },
-    //     { name: 'Contato 3', email: 'contato3@example.com' },
-    // ];
-
-    // const [selectedContact, setSelectedContact] = useState(null);
-
-    // const handleContactSelect = (contact) => {
-    //     setSelectedContact(contact);
-    // };
     return (
         <BrowserRouter>
             <Routes>
@@ -94,12 +80,9 @@ export default function MinhasRotas() {
                 <Route path="/FormQuiz" element={<FormQuiz />} />
                 <Route path="/FormTicket" element={<FormTicket />} />
                 <Route path="/Accordion" element={<Accordion />} />
-                {/* <Route path="/ContactList" element={<ContactList
-                    selectedContact={selectedContact}
-                    contacts={contacts}
-                    onSelect={handleContactSelect}
-                />} /> */}
+                {/* <Route path="/ContactList" element={<ContactList/>} /> */}
                 <Route path="/Chat" element={<Chat contact={contact} />} />
+                <Route path="/Calculadora" element={<Calculadora/>} />
             </Routes>
         </BrowserRouter>
     );
