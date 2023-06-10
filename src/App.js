@@ -28,6 +28,14 @@ import List3 from './Components/Atividade 4/List3';
 import List4 from './Components/Atividade 4/List4';
 import BucketList from './Components/Atividade 4/CounterList';
 
+//Atividade 5
+import Accordion from './Components/Atividade 5/Accordion';
+import Chat from './Components/Atividade 5/Chat';
+import ContactList from './Components/Atividade 5/ContactList';
+import FormQuiz from './Components/Atividade 5/FormQuiz';
+import FormTicket from './Components/Atividade 5/FormTicket';
+import Messenger from './Components/Atividade 5/Messenger';
+
 function App() {
   return (
     <div className="App">
@@ -67,6 +75,11 @@ function App() {
       <List4/>
       <hr/>
       <BucketList/>
+      <h1>Atividade 5</h1>
+      <Accordion />
+      <FormQuiz />
+      <FormTicket />
+      <Messenger />
     </div>
   );
 }
