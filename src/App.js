@@ -1,10 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import MinhasRotas from './minhasRotas';
+import BackButton from './Components/BackButton';
 
 function App() {
   return (
-    <MinhasRotas/>
+    <div className="App">
+        <MinhasRotas/>
+        <BackButton />
+    </div>
   );
 }
 

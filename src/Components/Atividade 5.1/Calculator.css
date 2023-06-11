@@ -1,4 +1,4 @@
-button{
+/* button{
     width: 3em;
     height: 3em;
     font-size: 1.5em;
@@ -10,7 +10,7 @@ button{
 
 button:hover{
     cursor: pointer;
-}
+} */
 
 .wrapper {
     background-color: black;

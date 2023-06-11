@@ -1,5 +1,6 @@
 import react from 'react';
 import getImageUrl from './utils.js';
+import BackButton from '../BackButton';
 
 // function TableOfContents() {
 //     return (

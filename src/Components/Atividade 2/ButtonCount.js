@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import homem from '../../Images/homem.png';
 import mulher from '../../Images/mulher.png';
 import restart from '../../Images/restart.png';
+import BackButton from '../BackButton';
 
 
 function MyButton() {
@@ -37,51 +38,52 @@ function MyButton() {
     const disableSubtraction = total <= 0;
 
     return (
-        <div className='show'>
-            <div className='view'>
-
-                <div className='count'>
-
-                    <div className='textTotal'>
-                        <p>Total</p>
-                    </div>
-
-                    <div>
-                        <button className='restart' onClick={restartCount}>
-                            <img className='imgRestart'
-                                src={restart}
-                            />
-                        </button>
-                    </div>
+        <div>
+            <div className='div-restart'>
+                <div className='total'>
+                    <h3>Total</h3>
                 </div>
 
-                <p className='totalCount'>
-                    {total}
-                </p>
-                <div className='buttons'>
-                    <div className='div'>
-                        <img src={homem} alt="Minha imagem" />
-                        <div className='divFlex'>
-                            <button className='buttonAdd' onClick={countMenSum}>+</button>
-                            <button className='buttonSub' onClick={countMenSub} disabled={disableSubtraction}>-</button>
-                        </div>
-                        <div className='result'>
-                            <p>Homens</p>
-                            <p className='totalCount'>{countMen}</p>
-                        </div>
+                <div className='restart'>
+                    <button onClick={restartCount}>
+                        <img className='imgRestart'
+                            src={restart}
+                        />
+                    </button>
+                </div>
+            </div>
+            
+            <p className='totalCount'>
+                {total}
+            </p>
+
+
+
+
+
+            <div className='buttons'>
+                <div className='div'>
+                    <img src={homem} alt="Minha imagem" />
+                    <div className='divFlex'>
+                        <button className='buttonAdd' onClick={countMenSum}>+</button>
+                        <button className='buttonSub' onClick={countMenSub} disabled={disableSubtraction}>-</button>
                     </div>
-                    <div className='div'>
-                        <img src={mulher} alt="Minha imagem" />
-                        <div className='divFlex'>
-                            <button className='buttonAdd' onClick={countGirlSum}>+</button>
-                            <button className='buttonSub' onClick={countGirlSub} disabled={disableSubtraction}>-</button>
-                        </div>
-                        <div className='result'>
-                            <p>Mulher</p>
-                            <p className='totalCount'>
-                                {countGirl}
-                            </p>
-                        </div>
+                    <div>
+                        <p>Homens</p>
+                        <p className='textCount'>{countMen}</p>
+                    </div>
+                </div>
+                <div className='div'>
+                    <img src={mulher} alt="Minha imagem" />
+                    <div className='divFlex'>
+                        <button className='buttonAdd' onClick={countGirlSum}>+</button>
+                        <button className='buttonSub' onClick={countGirlSub} disabled={disableSubtraction}>-</button>
+                    </div>
+                    <div className=''>
+                        <p>Mulher</p>
+                        <p className='textCount'>
+                            {countGirl}
+                        </p>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Relogio from './Relogio';
+import BackButton from '../BackButton';
 
 function Letreiro({ frase }) {
   const [text, setText] = useState("");
@@ -17,7 +19,12 @@ function Letreiro({ frase }) {
     return () => clearInterval(interval);
   }, [frase]);
 
-  return text;
+  return (
+    <div>
+      <h1><Relogio/></h1>
+      <h3>{text}</h3>
+    </div>
+  );
 }
 
 export default Letreiro;

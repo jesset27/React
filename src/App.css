@@ -26,11 +26,6 @@
   display: flex;
 }
 
-.divButton {
-  border: 1px solid rgb(8, 114, 105);
-  display: flex;
-}
-
 .buttonAdd,
 .buttonSub {
   color: white;
@@ -60,6 +55,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 50%;
 }
 
 img {
@@ -71,44 +67,6 @@ img {
   justify-content: space-between;
 }
 
-.view {
-  width: 350px;
-  height: 400px;
-  color: black;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.totalCount {
-  border: 2px solid grey;
-  border-radius: 10px;
-  width: 100px;
-  margin: 0 auto;
-}
-
-.show {
-  width: 500px;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
-
-.card {
-  border: 1px solid grey;
-  border-radius: 50%;
-}
-
-.card img {
-  border-radius: 50%;
-}
-
-.count {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .imgRestart{
   width: 3rem;
@@ -121,3 +79,27 @@ img {
   margin: 0 0 0 155px;
 }
 
+.textCount {
+  margin: 20px;
+  font-size: 1.5em;
+  border: 2px solid grey;
+  border-radius: 10px;
+  width: 100px;
+}
+
+.div-restart{
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.restart {
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+}
+
+.total {
+  width: 53.7%;
+  text-align: end;
+}

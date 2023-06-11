@@ -1,3 +1,4 @@
+import BackButton from '../BackButton';
 const person = {
     name: 'Gregorio Y. Zara',
     theme: {
