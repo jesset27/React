@@ -79,6 +79,9 @@ const Home = () => {
                     <li>
                         <Link to={'/Calculadora'} className="btn btn-primary">Calculadora 5.5</Link>
                     </li>
+                    <li>
+                        <Link to={'./MemoryGame'} className="btn btn-primary">Jogo da Memória 6</Link>
+                    </li>
                 </ul>
             </nav>
         </div>

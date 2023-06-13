@@ -1,93 +1,170 @@
 import React, { useState } from "react";
-import "./Calculator.css";
-import Container from "@mui/material/Container";
-import { Box } from "@mui/material";
+import './Calculator.css';
 
-export default function Calculator() {
-    const [num,setNum] =useState(0);
-    const [oldnum,setOldNum] =useState(0);
-    const [operator,setOperator] =useState();
+export default function Calculadora() {
+  const [visor, setVisor] = useState("0");
+  const [operando1, setOperando1] = useState("");
+  const [operando2, setOperando2] = useState("");
+  const [operador, setOperador] = useState("");
+  const [sinal, setSinal] = useState("");
 
-    function inputNum(e){
-        let input=e.target.value;
-        if (num ===0){
-            setNum(input);
-        }else {
-            setNum(num + input);
+  const pressionarTecla = (tecla) => {
+    switch (tecla) {
+      case "C":
+        limparVisores();
+        break;
+      case "CE":
+        limparUltimoDigito();
+        break;
+      case "+/-":
+        alternarSinal();
+        break;
+      case "%":
+        calcularPorcentagem();
+        break;
+      case "=":
+        realizarOperacao();
+        break;
+      default:
+        if (tecla.match(/[0-9]/)) {
+          digitarNumero(tecla);
+        } else if (tecla === ".") {
+          digitarPonto();
+        } else if (["+","-","*","/"].includes(tecla)) {
+          definirOperador(tecla);
         }
+        break;
     }
+  };
 
-    function clear (e) {
-        setNum(0)
+  const digitarNumero = (numero) => {
+    if (operador) {
+      setOperando2(operando2 + numero);
+      setVisor(sinal + operando2 + numero);
+    } else {
+      setOperando1(operando1 + numero);
+      setVisor(sinal + operando1 + numero);
     }
+  };
 
-    function porcentage() {
-        setNum(num / 100);
+  const digitarPonto = () => {
+    if (operador) {
+      if (!operando2.includes(".")) {
+        setOperando2(operando2 + ".");
+        setVisor(sinal + operando2 + ".");
+      }
+    } else {
+      if (!operando1.includes(".")) {
+        setOperando1(operando1 + ".");
+        setVisor(sinal + operando1 + ".");
+      }
     }
+  };
 
-    function changeSign(){
-        if (num > 0){
-            setNum(-num)
-        }else {
-            setNum(Math.abs(num));
+  const definirOperador = (op) => {
+    if (!operador) {
+      setOperador(op);
+      setVisor(sinal + op);
+    }
+  };
+
+  const calcularPorcentagem = () => {
+    if (operador && operando2) {
+      const valorPorcentagem = parseFloat(operando2) / 100;
+      const resultado = (parseFloat(operando1) * valorPorcentagem).toString();
+      setVisor(resultado);
+    }
+  };
+
+  const realizarOperacao = () => {
+    if (operador && operando1 && operando2) {
+      let resultado = "";
+      const num1 = parseFloat(operando1) * (sinal === "-" ? -1 : 1);
+      const num2 = parseFloat(operando2) * (sinal === "-" ? -1 : 1);
+      
+      if (operador === "+") {
+        resultado = (num1 + num2).toString();
+      } else if (operador === "-") {
+        resultado = (num1 - num2).toString();
+      } else if (operador === "*") {
+        resultado = (num1 * num2).toString();
+      } else if (operador === "/") {
+        if (num2 !== 0) {
+          resultado = (num1 / num2).toString();
+        } else {
+          resultado = "sem resultado";
         }
+      }
+      
+      setVisor(resultado);
+      setOperando1(resultado);
+      setOperando2("");
+      setOperador("");
+      setSinal(resultado.startsWith("-") ? "-" : "");
     }
+  };
 
-    function operateHandler(e) {
-        let operadorInput=e.target.value;
-        setOperator(operadorInput);
-        setOldNum(num);
-        setNum(0);
+  const limparVisores = () => {
+    setVisor("0");
+    setOperando1("");
+    setOperando2("");
+    setOperador("");
+    setSinal("");
+  };
+
+  const limparUltimoDigito = () => {  
+    if (operador) {
+      setOperando2(operando2.slice(0, -1));
+      setVisor(sinal + operando2.slice(0, -1));
+    } else {
+      setOperando1(operando1.slice(0, -1));
+      setVisor(sinal + operando1.slice(0, -1));
     }
+  };
 
-    function calculate(){
-        if(operator === "/"){
-            setNum(parseFloat(oldnum) / parseFloat(num));
-        }else if (operator === "X"){
-            setNum(parseFloat(oldnum) * parseFloat(num));
-        }else if (operator === "-"){
-            setNum(parseFloat(oldnum) - parseFloat(num));
-        }else if (operator === "+"){
-            setNum(parseFloat(oldnum) + parseFloat(num));
-        }
-
-        console.log("calculou");
-        console.log(oldnum);
-        console.log(num);
-        console.log(operator);
+  const alternarSinal = () => {
+    if (operador) {
+      setSinal(sinal === "" ? "-" : "");
+      setVisor((sinal === "" ? "-" : "") + operando2);
+    } else {
+      setSinal(sinal === "" ? "-" : "");
+      setVisor((sinal === "" ? "-" : "") + operando1);
     }
+  };
 
-    return  (
-        <div>
-            <Box m={5}/>
-        <Container maxWidth="md">
-            <div className="wrapper">
-                <Box m={12}/>
-                <h1 className="result">{num}</h1>
-                <div className="grade">
-                    <button onClick={clear}>AC</button>
-                    <button onClick={changeSign}>+/-</button>
-                    <button onClick={porcentage}>%</button>
-                    <button className="orange" onClick={operateHandler} value={"/"}>/</button>
-                    <button className="gray" onClick={inputNum} value={7}>7</button>
-                    <button className="gray" onClick={inputNum} value={8}>8</button>
-                    <button className="gray" onClick={inputNum} value={9}>9</button>
-                    <button className="orange" onClick={operateHandler} value={"X"}>X</button>
-                    <button className="gray" onClick={inputNum} value={4}>4</button>
-                    <button className="gray" onClick={inputNum} value={5}>5</button>
-                    <button className="gray" onClick={inputNum} value={6}>6</button>
-                    <button className="orange" onClick={operateHandler} value={"-"}>-</button>
-                    <button className="gray" onClick={inputNum} value={1}>1</button>
-                    <button className="gray" onClick={inputNum} value={2}>2</button>
-                    <button className="gray" onClick={inputNum} value={3}>3</button>
-                    <button className="orange" onClick={operateHandler} value={"+"}>+</button>
-                    <button className="gray" onClick={inputNum} value={0}>0</button>
-                    <button className="gray" onClick={inputNum} value={"."}>,</button>
-                    <button className="gray" style={{visibility: "hidden"}}>,</button>
-                    <button className="orange" onClick={calculate}>=</button>
-                </div>
-        </div>
-        </Container>
-        </div>
-    )
+  return (
+    <div className="calculadora">
+      <input type="text" value={visor} readOnly className="visor" />
+      <div className="botoes">
+        <button className="botao2" onClick={() => pressionarTecla("C")}>C</button>
+        <button className="botao2" onClick={() => pressionarTecla("CE")}>CE</button>   
+        <button className="botao2" onClick={() => pressionarTecla("+/-")}>+/-</button>
+        <button className="botao2" onClick={() => pressionarTecla("%")}>%</button>
+      </div>
+      <div className="botoes">
+        <button className="botao" onClick={() => pressionarTecla("7")}>7</button>
+        <button className="botao" onClick={() => pressionarTecla("8")}>8</button>
+        <button className="botao" onClick={() => pressionarTecla("9")}>9</button>
+        <button className="botao2" onClick={() => pressionarTecla("/")}>/</button>
+      </div>
+      <div className="botoes">
+        <button className="botao" onClick={() => pressionarTecla("4")}>4</button>
+        <button className="botao" onClick={() => pressionarTecla("5")}>5</button>
+        <button className="botao" onClick={() => pressionarTecla("6")}>6</button>
+        <button className="botao2" onClick={() => pressionarTecla("*")}>*</button>
+      </div>
+      <div className="botoes">
+        <button className="botao" onClick={() => pressionarTecla("1")}>1</button>
+        <button className="botao" onClick={() => pressionarTecla("2")}>2</button>
+        <button className="botao" onClick={() => pressionarTecla("3")}>3</button>
+        <button className="botao2" onClick={() => pressionarTecla("-")}>-</button>
+      </div>
+      <div className="botoes">
+        <button className="botao" onClick={() => pressionarTecla("0")}>0</button>
+        <button className="botao" onClick={() => pressionarTecla(".")}>.</button>
+        <button className="botao" onClick={() => pressionarTecla("=")}>=</button>
+        <button className="botao2" onClick={() => pressionarTecla("+")}>+</button>
+      </div>
+    </div>
+  );
 }

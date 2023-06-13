@@ -1,44 +1,59 @@
-/* button{
-    width: 3em;
-    height: 3em;
-    font-size: 1.5em;
-    border: none;
-    border-radius: 2em;
-    margin: 0.3em;
-
+.calculadora {
+    width: 300px;
+    background-color: #19181b;
+    border-radius: 5px;
+    padding: 10px;
+    height: 370px;
+    margin-left: 200px;
+    margin: 0 auto;
 }
 
-button:hover{
-    cursor: pointer;
-} */
-
-.wrapper {
-    background-color: black;
-    border-radius: 1em;
-    padding: 1em;
-
+.visor {
+    margin-top: 5px;
+    width: 95%;
+    height: 40px;
+    font-size: 30px;
+    text-align: right;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
-.orange {
-    background-color: #FF9500;
-    color: white;
-}
-
-.gray{
-    background-color: #505050;
-    color: white;
-}
-
-.result {
-    color: white;
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 1em;
-    font-size:3.5em ;
-}
-
-.grade {
+.botoes {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.botao {
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+    border: none;
+    background-color: #3e3b3b;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-top: 5px;
+    text-align: center;
+    color: #fff;
+}
+
+.botao2 {
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+    border: none;
+    background-color: #f96306;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-top: 5px;
+    color: #fff;
+}
+
+.botao:hover {
+    background-color: blueviolet;
+}
+
+.botao:active {
+    background-color: #c4c4c4;
 }
