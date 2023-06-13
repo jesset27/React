@@ -1,8 +1,14 @@
+.app-pokemon {
+  background-image: url('../../../public/images/wallpaper.jpg'); /* Substitua pelo caminho correto da sua imagem */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .app {
     text-align: center;
     margin: 20px;
-    background:linear-gradient(	#4682B4, #191970, #008080)
-    
+    background-color: #1b1a1a;
+    color: rgb(255, 0, 179);
   }
   
   h1 {
@@ -61,7 +67,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f44336;
+    background-color: #3639f4;
     color: #fff;
     font-size: 32px;
   }
@@ -85,7 +91,7 @@
   .buttonjm {
     font-size: 16px;
     padding: 10px 20px;
-    background-color: #110366;
+    background-color: #e91919;
     color: #fff;
     border: none;
     cursor: pointer;

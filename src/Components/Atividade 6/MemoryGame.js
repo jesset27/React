@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MdPets } from 'react-icons/md';
+import { MdOutlineSimCard } from 'react-icons/md';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import './memorygame.css';
 
@@ -15,11 +15,11 @@ const difficulties = {
   hard: 12
 };
 
-export default function MemoryGame() {
+const MemoryGame = () => {
   const [cards, setCards] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [completedCards, setCompletedCards] = useState([]);
-  const [difficulty, setDifficulty] = useState('easy');
+  const [difficulty, setDifficulty] = useState('medium');
   const [score, setScore] = useState(0);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function MemoryGame() {
 
   useEffect(() => {
     if (completedCards.length === getCardCount(difficulty)) {
-      alert('Parabéns! Você ganhou o jogo!');
+      alert('Parabéns! Você é um mestre Pokémon!');
     }
   }, [completedCards, difficulty]);
 
@@ -42,7 +42,7 @@ export default function MemoryGame() {
       const secondCard = cards[index];
       if (firstCard === secondCard) {
         setCompletedCards([...completedCards, firstCard]);
-        setScore(score + 1);
+        setScore((prevScore) => prevScore + 1);
       } else {
         setTimeout(() => {
           setFlippedCards([]);
@@ -85,7 +85,7 @@ export default function MemoryGame() {
             {isFlipped || isCompleted ? (
               <img src={`/images/${card}.png`} alt={card} className="card-image" />
             ) : (
-              <MdPets size={40} />
+              <MdOutlineSimCard size={40} />
             )}
           </div>
         </div>
@@ -111,26 +111,25 @@ export default function MemoryGame() {
   };
 
   return (
-    <div className="app">
-      <h1>Jogo da Memória Pokémon</h1>
-      <div className="score">Pontuação: {score}</div>
+    <div className="app app-pokemon">
+      <h1>Pokémon</h1>
+      <div className="score">Points: {score}</div>
       <div className="game-container">
         {renderCards()}
       </div>
       <div className="controls">
-        <label>
-         <h3>Nível de Dificuldade:</h3> 
-          <select value={difficulty} onChange={handleDifficultyChange}>
-            <option value="easy">Fácil</option>
-            <option value="medium">Médio</option>
-            <option value="hard">Difícil</option>
-          </select>
-        </label>
-        <br></br><br></br>
-        <button  onClick={resetGame} class="buttonjm">Reiniciar</button>
-        <br></br><br></br>
+        <h3>Select Dificulty:</h3>
+        <select value={difficulty} onChange={handleDifficultyChange}>
+          <option value="easy">Easy</option>
+          <option value="medium">Medim</option>
+          <option value="hard">Hard</option>
+        </select>
+        <br /><br />
+        <button onClick={resetGame} className="buttonjm">Restart</button>
+        <br /><br />
       </div>
     </div>
   );
-}
+};
 
+export default MemoryGame;

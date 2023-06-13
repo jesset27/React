@@ -71,13 +71,10 @@ const Home = () => {
                         <Link to={'/Accordion'} className="btn btn-primary">Accordion 5.2</Link>
                     </li>
                     <li>
-                        <Link to={'/ContactList'} className="btn btn-primary">ContactList 5.3 ERRO</Link>
+                        <Link to={'/Chat'} className="btn btn-primary">Chat 5.3</Link>
                     </li>
                     <li>
-                        <Link to={'/Chat'} className="btn btn-primary">Chat 5.4</Link>
-                    </li>
-                    <li>
-                        <Link to={'/Calculadora'} className="btn btn-primary">Calculadora 5.5</Link>
+                        <Link to={'/Calculadora'} className="btn btn-primary">Calculadora 5.4</Link>
                     </li>
                     <li>
                         <Link to={'./MemoryGame'} className="btn btn-primary">Jogo da Memória 6</Link>

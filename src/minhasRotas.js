@@ -34,7 +34,6 @@ import BucketList from './Components/Atividade 4/BucketList.js';
 import FormQuiz from './Components/Atividade 5/FormQuiz.js';
 import FormTicket from './Components/Atividade 5/FormTicket.js';
 import Accordion from './Components/Atividade 5/Accordion.js';
-// import ContactList from './Components/Atividade 5/ContactList.js';
 import Chat from './Components/Atividade 5/Chat.js';
 import Calculadora from './Components/Atividade 5.1/Calculator.jsx';
 
@@ -82,7 +81,6 @@ export default function MinhasRotas() {
                 <Route path="/FormQuiz" element={<FormQuiz />} />
                 <Route path="/FormTicket" element={<FormTicket />} />
                 <Route path="/Accordion" element={<Accordion />} />
-                {/* <Route path="/ContactList" element={<ContactList/>} /> */}
                 <Route path="/Chat" element={<Chat contact={contact} />} />
 
                 <Route path="/MemoryGame" element={<MemoryGame/>} />
